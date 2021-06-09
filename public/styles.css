@@ -1,0 +1,122 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.content {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  height: 100vh;
+  background-color: #333333;
+  box-sizing: border-box;
+}
+
+input {
+  font-family: 'Noto Sans';
+  max-width: 100%;
+  background-color: #3b3b3b !important;
+  color: lightgray !important;
+}
+
+#message_content {
+  border: none !important;
+}
+
+.form-control {
+  width: 100%;
+  height: 50px;
+}
+
+#chat {
+  margin-top: 10%;
+  min-width: 400px;
+  max-width: 100%;
+  height: 100vh;
+  display: none;
+}
+
+button {
+  width: 100%;
+  height: 50px;
+  margin-top: 10px;
+}
+
+.content-messages {
+  position: relative;
+}
+
+.messages {
+  min-width: 20%;
+  max-width: 100%;
+  height: 80vh;
+  margin: 5px 0;
+  border: 1px solid #3b3b3b;
+  padding: 20px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  bottom: 10px;
+}
+
+.message,
+.my_message {
+  margin: 10px 25% 10px 10px;
+  border-radius: 0px 10px 10px;
+  padding: 10px;
+  font-family: 'Noto Sans';
+  font-size: 0.9em;
+  color: lightgray;
+  background-color: #3b3b3b;
+}
+
+.my_message {
+  text-align: right;
+  border-radius: 10px 10px 0px;
+  margin: 10px 10px 10px 25%;
+}
+
+#descer {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  right: 3%;
+  bottom: 10px;
+  position: absolute;
+  display: none;
+}
+
+.content-input {
+  height: 60px;
+  display: flex;
+  flex-direction: row;
+  bottom: 0 !important;
+}
+
+.buttons > button {
+  right: 0;
+  margin-top: 0 !important;
+}
+
+/* ScrollBar */
+
+/* width */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background-color: #3b3b3b;
+  border-radius: 8px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #4B4B4B;
+  border-radius: 8px;
+}
