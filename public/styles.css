@@ -11,8 +11,12 @@
   align-items: center;
   overflow: hidden;
   height: 100vh;
-  background-color: #333333;
+  background-color: #2b2b2b;
   box-sizing: border-box;
+}
+
+p {
+  margin-bottom: 0;
 }
 
 input {
@@ -20,10 +24,17 @@ input {
   max-width: 100%;
   background-color: #3b3b3b !important;
   color: lightgray !important;
+  border: none !important;
+}
+
+input:focus-within {
+  box-shadow: none !important;
 }
 
 #message_content {
   border: none !important;
+  border-radius: 0px !important;
+  padding-right: 15%;
 }
 
 .form-control {
@@ -33,7 +44,7 @@ input {
 
 #chat {
   margin-top: 10%;
-  min-width: 400px;
+  min-width: 350px;
   max-width: 100%;
   height: 100vh;
   display: none;
@@ -53,12 +64,10 @@ button {
   min-width: 20%;
   max-width: 100%;
   height: 80vh;
-  margin: 5px 0;
-  border: 1px solid #3b3b3b;
   padding: 20px;
   overflow-y: auto;
   overflow-x: hidden;
-  bottom: 10px;
+  background-color: #333333;
 }
 
 .message,
@@ -70,6 +79,7 @@ button {
   font-size: 0.9em;
   color: lightgray;
   background-color: #3b3b3b;
+  word-wrap: break-word;
 }
 
 .my_message {
@@ -94,7 +104,23 @@ button {
   height: 60px;
   display: flex;
   flex-direction: row;
+  top: 1px;
   bottom: 0 !important;
+  position: relative;
+}
+
+#send {
+  position: absolute;
+  width: 15%;
+  font-size: 2rem;
+  background-color: transparent;
+  color: #0d6efd;
+  display: none;
+}
+
+#send a {
+  color: #0d6efd;
+
 }
 
 .buttons > button {

@@ -12,6 +12,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
         rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
 
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -25,15 +27,19 @@
         
         <form id="chat" class="col-2 col-md-4 col-lg-6 centered">
             <div class="content-messages">
-                <div class="messages" id="messages"></div>
+                <p class="messages" id="messages"></p>
                 <button id="descer" class="btn btn-lg btn-primary" onclick="rolar()"><i class="bi bi-chevron-down"></i></button>    
             </div>
             <div class="content-input">
-                <input type="text" class="form-control" name="message" id="message_content" autocomplete="off" placeholder="Digite sua mensagem:">
+                <input type="text" class="form-control" name="message" id="message_content" onkeyup="showButton()" autocomplete="off" placeholder="Digite sua mensagem:">
                 <div class="buttons">
-                    <button type="submit" class="btn btn-lg btn-primary">Enviar</button>
+                    <button type="submit" id="send">
+                        <span class="material-icons">
+                            send
+                        </span>                            
+                    </button>
                 </div>
-            </div>            
+            </div>
         </form>
     </div>
 
@@ -43,6 +49,7 @@
         socket.on('receivedMessage', function(message) {
             renderMessage(message)
             notify(message)
+            autoRolar()
         })
         
         socket.on('previousMessages', function(messages) {
@@ -89,6 +96,7 @@
 
                 socket.emit('sendMessage', messageObject)
                 $('#message_content').val('')
+                showButton()
                 rolar()
             }
         })
