@@ -26,9 +26,12 @@
         </form>
         
         <form id="chat" class="col-2 col-md-4 col-lg-6 centered">
+            <div class="users"></div>
             <div class="content-messages">
                 <p class="messages" id="messages"></p>
-                <button id="descer" class="btn btn-lg btn-primary" onclick="rolar()"><i class="bi bi-chevron-down"></i></button>    
+                <button id="descer" class="btn btn-lg btn-primary" onclick="rolar()">
+                    <i class="bi bi-chevron-down"></i>
+                </button>    
             </div>
             <div class="content-input">
                 <input type="text" class="form-control" name="message" id="message_content" onkeyup="showButton()" autocomplete="off" placeholder="Digite sua mensagem:">
@@ -50,17 +53,11 @@
             renderMessage(message)
             notify(message)
             autoRolar()
-        })
+        })        
         
         socket.on('previousMessages', function(messages) {
             for (message of messages) {
                 renderMessage(message)
-            }
-        })
-
-        socket.on('join', function(users) {
-            for (user of users) {
-                renderUsers(userName)
             }
         })
 
@@ -95,7 +92,7 @@
                 renderMessage(messageObject)
 
                 socket.emit('sendMessage', messageObject)
-                $('#message_content').val('')
+                $('#message_content').val('').focus()
                 showButton()
                 rolar()
             }
