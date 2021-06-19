@@ -19,11 +19,24 @@ app.get('/', (req, res) => {
 })
 
 let messages = []
+let users = []
 
 io.on('connection', socket => {
     console.log(`Socket conectado. ${socket.id}`)
     
     socket.emit('previousMessages', messages)
+    
+    socket.emit('listUsers', users)
+        
+    socket.on('sendUser', data => {
+        users.push(data)
+
+        // users[socket.id] = data
+
+        console.log(users)
+        
+        socket.broadcast.emit('receivedUser', data)
+    })
 
     socket.on('sendMessage', data => {
         messages.push(data)

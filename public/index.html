@@ -60,6 +60,16 @@
                 renderMessage(message)
             }
         })
+        
+        socket.on('receivedUser', function(users) {
+            renderUser(users)
+        })
+
+        socket.on('listUsers', function(users) {
+            for (user of users) {
+                renderUser(user)
+            }
+        })
 
         $('#access_user').submit(function(event){
             event.preventDefault()
@@ -70,6 +80,10 @@
                 $('#access_user').hide()
                 $('#chat').show()
             }
+
+            renderUser(userName)
+
+            socket.emit('sendUser', userName)
         })
 
         var userColor = getRandomColor()

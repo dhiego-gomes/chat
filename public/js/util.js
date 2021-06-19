@@ -49,6 +49,10 @@ function renderMessage(message) {
     $('.messages').append(`<p class="${messageClass}"><strong style='color:${message.color}'> ${authorClass}</strong> ${message.message}</p>`)
 }
 
+function renderUser(user) {
+    $('.users').append(`<span>•${user} </span>`)
+}
+
 function rolar() {
     var messages = document.querySelector('.messages')
     messages.scrollTop = messages.scrollHeight
